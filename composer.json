@@ -1,0 +1,19 @@
+{
+    "name": "dementor/psa-cli-kit",
+    "description": "A collection of common interactive command line user interfaces.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Psa\\CliKit\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Pavel Shklyarik",
+            "email": "shklyarik.pavel@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
