@@ -6,7 +6,7 @@ namespace Psa\CliKit;
 class InputField
 {
     public function __construct(
-        protected $placeholder = 'Enter text value: ',
+        protected $message = 'Enter text value: ',
         protected $print = true
     )
     {
@@ -14,10 +14,10 @@ class InputField
 
     public function value(): string
     {
-        $value = trim(readline($this->placeholder));
+        $value = trim(readline($this->message));
         echo "\033[A\033[2K"; // clear previous line
         if ($this->print) {
-            echo $this->placeholder . $value . PHP_EOL;
+            echo $this->message . $value . PHP_EOL;
         }
         return $value;
     }
