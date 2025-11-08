@@ -6,13 +6,18 @@ namespace Psa\CliKit;
 class InputField
 {
     public function __construct(
-        protected $placeholder = 'Enter text value: '
+        protected $placeholder = 'Enter text value: ',
+        protected $printResult = true
     )
     {
     }
 
     public function value(): string
     {
-        return trim(readline($this->placeholder));
+        $value = trim(readline($this->placeholder));
+        if ($this->printResult) {
+            echo $this->placeholder . $value . PHP_EOL;
+        }
+        return $value;
     }
 }
