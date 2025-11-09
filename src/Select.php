@@ -33,14 +33,15 @@ class Select
      */
     private function displayOptions(string $title, array $options, int $currentChoice, int $previousLines = 0): void
     {
-        // Move cursor up to overwrite previous output
         if ($previousLines > 0) {
             echo "\033[{$previousLines}A";
         }
 
         $output = "{$title}\n--------------------------\n";
-        foreach ($options as $index => $value) {
-            $output .= $index === $currentChoice ? "👉 {$value}\n" : "   {$value}\n";
+        $i = 0;
+        foreach ($options as $key => $value) {
+            $output .= $i === $currentChoice ? "👉 {$value}\n" : "   {$value}\n";
+            $i++;
         }
 
         echo $output;
@@ -87,7 +88,7 @@ class Select
         // Clear the menu and show the final choice
         echo "\033[{$totalLines}A"; // move up
         echo "\033[0J";             // erase below
-        echo "{$this->message} : {$this->options[$currentChoice]}\n";
+        echo "{$this->message} : {$this->options[$optionKeys[$currentChoice]]}\n";
 
         return $optionKeys[$currentChoice];
     }
